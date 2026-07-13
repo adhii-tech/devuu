@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Happy Birthday Devuu ❤️</title>
+<meta name="description" content="A little world made just for Devikaa.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&family=Quicksand:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ AMBIENT BACKGROUND (persists behind everything) ============ -->
+<div class="ambient" aria-hidden="true">
+  <canvas id="particle-canvas"></canvas>
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="blob blob-c"></div>
+  <div class="grain"></div>
+</div>
+
+<!-- ============ MUSIC TOGGLE ============ -->
+<button id="music-toggle" class="music-toggle" aria-label="Toggle music">
+  <svg viewBox="0 0 24 24" class="icon-note"><path fill="currentColor" d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3" fill="currentColor"/><circle cx="18" cy="16" r="3" fill="currentColor"/></svg>
+  <span class="music-rings"><span></span><span></span><span></span></span>
+</button>
+<audio id="bg-music" loop preload="none">
+  <source src="assets/music/musicsoo.mp3" type="mp3">
+</audio>
+
+<!-- ============ CUSTOM CURSOR GLOW ============ -->
+<div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+<!-- ============ 1. LANDING / GATE ============ -->
+<section id="gate" class="section gate">
+  <div class="gate-content">
+    <p class="eyebrow reveal-up">a little world for</p>
+    <h1 class="title-huge reveal-up">
+      Happy Birthday <span class="script-name">Devuu</span> <span class="heart-emoji">❤️</span>
+    </h1>
+    <p class="subtitle reveal-up">You are my cutest little happiness.</p>
+
+    <button id="bloom-heart" class="bloom-heart" aria-label="Open your gift">
+      <svg class="heart-svg" viewBox="0 0 100 90">
+        <path class="heart-path" d="M50 85 C 20 60, -5 35, 12 15 C 25 0, 45 5, 50 22 C 55 5, 75 0, 88 15 C 105 35, 80 60, 50 85 Z"/>
+      </svg>
+      <span class="petal-burst" id="petal-burst"></span>
+    </button>
+
+    <p class="tap-hint reveal-up">tap the heart to begin</p>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">
+    <span></span>
+    <p>begin the journey</p>
+  </div>
+</section>
+
+<!-- ============ 2. ENVELOPE / LETTER ============ -->
+<section id="letter-section" class="section letter-section">
+  <div class="section-inner">
+    <p class="eyebrow reveal">a letter, just for you</p>
+
+    <div class="envelope-wrap" id="envelope-wrap">
+      <div class="envelope" id="envelope">
+        <div class="envelope-back"></div>
+        <div class="envelope-letter" id="envelope-letter">
+          <p class="letter-line">My Dear Devuu,</p>
+          <p class="letter-line">Happy Birthday to the cutest person I've ever known.</p>
+          <p class="letter-line">You didn't just become a part of my life&hellip;</p>
+          <p class="letter-line">You changed it beautifully.</p>
+          <p class="letter-line">Thank you for making ordinary days feel special.</p>
+          <p class="letter-line">You make me smile without trying.</p>
+          <p class="letter-line">You are my peace.</p>
+          <p class="letter-line">My comfort.</p>
+          <p class="letter-line">My happiness.</p>
+          <p class="letter-line">Stay this cute forever.</p>
+          <p class="letter-line signature-line">Love you always ❤️</p>
+          <p class="letter-line sign-off">&mdash; With Love</p>
+        </div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-front"></div>
+        <div class="wax-seal" id="wax-seal">D</div>
+      </div>
+      <p class="envelope-hint" id="envelope-hint">tap to open</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. OUR STORY ============ -->
+<section id="story" class="section story-section">
+  <div class="section-inner">
+    <p class="eyebrow reveal">our story so far</p>
+    <h2 class="title-lg reveal">Every little moment</h2>
+
+    <div class="timeline">
+      <div class="timeline-line" id="timeline-line"></div>
+
+      <div class="timeline-item" data-side="left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <span class="timeline-tag">the beginning</span>
+          <h3>The day I met you</h3>
+          <p>The world looked the same that day&mdash;except it wasn't, not after you walked into it.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-side="right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <span class="timeline-tag">the spark</span>
+          <h3>The first smile</h3>
+          <p>One smile from you and somehow my whole day rearranged itself around it.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-side="left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <span class="timeline-tag">the sound i love most</span>
+          <h3>The first laugh</h3>
+          <p>I don't remember the joke. I remember the sound. I still do.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-side="right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <span class="timeline-tag">building something</span>
+          <h3>The memories we created</h3>
+          <p>Small moments, stacked one on another, quietly becoming a whole life together.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-side="left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <span class="timeline-tag">even now</span>
+          <h3>The little moments</h3>
+          <p>The ordinary Tuesdays. The silly voice notes. Those are my favourites, actually.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. PHOTO GALLERY ============ -->
+<section id="gallery" class="section gallery-section">
+  <div class="section-inner">
+    <p class="eyebrow reveal">frames i keep</p>
+    <h2 class="title-lg reveal">A few of my favourites</h2>
+
+    <div class="masonry" id="masonry">
+      <!-- polaroid items injected/duplicatable -->
+      <figure class="polaroid" style="--r:-6deg" data-src="assets/images/photo1.jpg">
+        <div class="polaroid-photo ph1"></div>
+        <figcaption>us, somewhere lovely</figcaption>
+      </figure>
+      <figure class="polaroid" style="--r:4deg" data-src="assets/images/photo2.jpg">
+        <div class="polaroid-photo ph2"></div>
+        <figcaption>that laugh</figcaption>
+      </figure>
+      <figure class="polaroid" style="--r:-3deg" data-src="assets/images/photo3.jpg">
+        <div class="polaroid-photo ph3"></div>
+        <figcaption>cute</figcaption>
+      </figure>
+      <figure class="polaroid" style="--r:7deg" data-src="assets/images/photo4.jpg">
+        <div class="polaroid-photo ph4"></div>
+        <figcaption>little moments</figcaption>
+      </figure>
+      <figure class="polaroid" style="--r:-5deg" data-src="assets/images/photo5.jpg">
+        <div class="polaroid-photo ph5"></div>
+        <figcaption>you</figcaption>
+      </figure>
+      <figure class="polaroid" style="--r:3deg" data-src="assets/images/photo6.jpg">
+        <div class="polaroid-photo ph6"></div>
+        <figcaption>a good day</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <div class="lightbox-photo" id="lightbox-photo"></div>
+    </div>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+  </div>
+</section>
+
+<!-- ============ 5. APPRECIATION ============ -->
+<section id="appreciation" class="section appreciation-section">
+  <div class="section-inner">
+    <p class="eyebrow reveal">what makes you special</p>
+    <h2 class="title-lg reveal">Everything, really</h2>
+
+    <div class="cards-float">
+      <div class="float-card glass">❤️ Your Cute Smile</div>
+      <div class="float-card glass">❤️ Your Innocence</div>
+      <div class="float-card glass">❤️ Your Caring Nature</div>
+      <div class="float-card glass">❤️ Your Baby Character</div>
+      <div class="float-card glass">❤️ Your Kind Heart</div>
+      <div class="float-card glass">❤️ Your Beautiful Soul</div>
+      <div class="float-card glass">❤️ Your Beautiful Eyes</div>
+      <div class="float-card glass">❤️ Your Voice</div>
+      <div class="float-card glass">❤️ Your Presence</div>
+      <div class="float-card glass wide">❤️ Everything About You</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. BEFORE & AFTER ============ -->
+<section id="before-after" class="section before-after-section">
+  <div class="split-track" id="split-track">
+    <div class="split-side split-before">
+      <div class="split-inner">
+        <span class="split-label">before you</span>
+        <h3>Life was ordinary.</h3>
+        <p>Everything felt normal. Days looked like other days.</p>
+      </div>
+    </div>
+    <div class="split-side split-after">
+      <div class="split-inner">
+        <span class="split-label">after you</span>
+        <h3>Life became happier.</h3>
+        <p>Every day became beautiful. I learned to smile more. The world became brighter.</p>
+      </div>
+    </div>
+    <div class="split-divider" id="split-divider"></div>
+  </div>
+</section>
+
+<!-- ============ 7. LOVE COUNTER ============ -->
+<section id="counter" class="section counter-section">
+  <div class="section-inner">
+    <p class="eyebrow reveal">together since</p>
+    <div class="date-edit-wrap reveal">
+      <label for="together-date" class="date-label">edit our start date</label>
+      <input type="date" id="together-date" class="date-input">
+    </div>
+
+    <div class="counter-grid glass reveal">
+      <div class="counter-cell">
+        <span class="counter-num" id="count-days">0</span>
+        <span class="counter-label">days</span>
+      </div>
+      <div class="counter-cell">
+        <span class="counter-num" id="count-hours">0</span>
+        <span class="counter-label">hours</span>
+      </div>
+      <div class="counter-cell">
+        <span class="counter-num" id="count-minutes">0</span>
+        <span class="counter-label">minutes</span>
+      </div>
+      <div class="counter-cell">
+        <span class="counter-num" id="count-seconds">0</span>
+        <span class="counter-label">seconds</span>
+      </div>
+    </div>
+    <p class="counter-caption reveal">&mdash; and every one of them, worth it.</p>
+  </div>
+</section>
+
+<!-- ============ 8. REASONS I LOVE YOU ============ -->
+<section id="reasons" class="section reasons-section">
+  <div class="section-inner">
+    <p class="eyebrow reveal">reasons, off the top of my head</p>
+    <h2 class="title-lg reveal">Because&hellip;</h2>
+    <div class="reasons-field" id="reasons-field"><!-- populated by JS --></div>
+  </div>
+</section>
+
+<!-- ============ 9. MAGICAL SKY ============ -->
+<section id="sky" class="section sky-section">
+  <canvas id="sky-canvas"></canvas>
+  <div class="moon"></div>
+  <div class="section-inner sky-content">
+    <p class="eyebrow reveal sky-eyebrow">under this same sky</p>
+    <h2 class="title-lg sky-title reveal">Wherever you look up, I'm looking too.</h2>
+  </div>
+</section>
+
+<!-- ============ 10. FINAL MESSAGE ============ -->
+<section id="final-message" class="section final-message-section">
+  <div class="section-inner">
+    <h2 class="title-huge quote reveal">You are my favourite chapter.</h2>
+    <p class="final-sub reveal">If I had one wish&hellip;<br>I'd choose you again.<br>Every single time.</p>
+  </div>
+</section>
+
+<!-- ============ 11. ENDING ============ -->
+<section id="ending" class="section ending-section">
+  <canvas id="confetti-canvas"></canvas>
+  <div class="petals-fall" id="petals-fall"></div>
+  <div class="section-inner">
+    <button id="ending-heart" class="ending-heart" aria-label="celebrate">
+      <svg viewBox="0 0 100 90"><path d="M50 85 C 20 60, -5 35, 12 15 C 25 0, 45 5, 50 22 C 55 5, 75 0, 88 15 C 105 35, 80 60, 50 85 Z"/></svg>
+    </button>
+    <h2 class="title-huge reveal">Happy Birthday Devuu ❤️</h2>
+    <p class="subtitle reveal">Thank you for coming into my life.</p>
+
+    <button id="final-surprise" class="final-surprise-btn">One More Surprise</button>
+    <div class="i-love-you" id="i-love-you">I Love You ❤️</div>
+  </div>
+</section>
+
+<!-- ============ Scripts ============ -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
